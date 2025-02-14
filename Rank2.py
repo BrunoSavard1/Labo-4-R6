@@ -16,7 +16,8 @@ while True:
     equipes = ["Att", "Def"]
     # liste oppérateur bannis
     ban_agents =[] 
-
+    ban = "Lion"
+    # dans la variable ban_agents on stock les agents qui on déja été bannis pour pas les rebannir a nouveau.
     start = input ("veut tu lancer une partie O/N : ")
     if start !="O" :
         exit()
@@ -28,19 +29,20 @@ while True:
             for equipe in equipes :
                 print(f"\n{equipe} : Choisissez un opérateur à bannir parmi les suivants :")
                 print(agents)
-                while True : 
+                while ban in agents : 
+                    
                     ban = input("Entrer un oppérateur a bannir : ")
                     if ban in agents:
                         agents.remove(ban)
                         ban_agents.append(ban)
                         print("Cet oppérateur à été bannis")
                         break
-                    # dans la variable ban_agents on stock les agents qui on déja été bannis pour pas les rebannir a nouveau.
+                    # cette boucle permet de vérifier et de mettre un agent dans la variable ban_agents 
                     # .remove enlève l'agent et .append les remets 
-                    else :
+                else :
                         print(f"{ban} n'est pas un opérateur valide ou a déjà été banni. Essayez encore.")
-                        break
-                        # temps que les 2 phases ne sont pas finis le programme demande des agents a bannir et break pour sortir de la boucle
+                        
+                    # temps que les 2 phases ne sont pas finis le programme demande des agents a bannir et break pour sortir de la boucle
                             
                      
         print(f"{ban_agents} Voici les oppérateurs qui on été bannis")            
